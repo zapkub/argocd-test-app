@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- './serviceentry-echo.yaml'
+- './virtualservice-echo.yaml'
+- './deployment-echo.yaml'
+- './service-echo.yaml'
+- './virtualservice-direct.yaml'
+

@@ -1,0 +1,23 @@
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: echo
+spec:
+  exportTo:
+  - '*'
+  hosts:
+  - echo.internal
+  location: MESH_INTERNAL
+  ports:
+  - name: http
+    number: 80
+    protocol: HTTP
+    targetPort: 5678 
+  resolution: DNS
+
+  workloadSelector:
+    labels:
+      app.kubernetes.io/name: echo-2
+
+

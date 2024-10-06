@@ -1,0 +1,21 @@
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+spec:
+  # components:
+  #   ingressGateways:
+  #   - name: ingressgateway
+  #     namespace: cluster-ingress
+  #     enabled: true
+  #     label:
+  #       istio: ingressgateway
+  # values:
+  #     gateways:
+  #       istio-ingressgateway:
+  #         injectionTemplate: gateway
+  meshConfig:
+    defaultConfig:
+      proxyMetadata:
+        ISTIO_META_DNS_CAPTURE: "true"
+        ISTIO_META_DNS_AUTO_ALLOCATE: "true"
+    rootNamespace: istio-system
+    accessLogFile: /dev/stdout

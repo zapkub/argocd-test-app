@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: echo
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: echo
+    spec:
+      containers:
+      - name: echo-container
+        image: hashicorp/http-echo
+        args:
+        - "-text=Hello, Kubernetes!"
+        ports:
+        - containerPort: 5678
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-deployment-2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: echo-2
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: echo-2
+    spec:
+      containers:
+      - name: echo-container
+        image: hashicorp/http-echo
+        args:
+        - "-text=Hello, Kubernetes!"
+        ports:
+        - containerPort: 5678
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-deployment-3
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: echo-3
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: echo-3
+    spec:
+      containers:
+      - name: echo-container
+        image: hashicorp/http-echo
+        args:
+        - "-text=Hello, Kubernetes!"
+        ports:
+        - containerPort: 5678
+
+
+

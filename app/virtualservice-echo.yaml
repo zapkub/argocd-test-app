@@ -1,0 +1,20 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: echo
+spec:
+  exportTo:
+  - '*'
+  hosts:
+  - echo.rungsikorn.local
+  http:
+  - name: echo
+    match:
+    - uri:
+        prefix: /
+    route:
+    - destination:
+        host: echo.internal
+        port:
+          number: 80
+      weight: 100
